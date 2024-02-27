@@ -4,7 +4,7 @@
   font-weight: bold;
 }
 
-#tweet-text {
+.tweet-text {
   outline-width: 0;
   border-top: transparent;
   border-right: transparent;
@@ -17,12 +17,12 @@
   align-content: stretch;
 }
 
-#tweet-button {
+.tweet-button {
   color: #FFFFFF ;
   background-color: #4056A1;
 }
 
-#bottom-div {
+.bottom-div {
   display: flex;
   justify-content: space-between;
   font-family: 'Bungee', sans-serif;

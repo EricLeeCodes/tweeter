@@ -34,12 +34,12 @@
 
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span id="tweeter-logo-font">tweeter</span>
+      <span class="tweeter-logo-font">tweeter</span>
       <div>
         <div>
           <span>Write a new tweet</span>
         </div>
-        <div id="double-down-arrow">
+        <div class="double-down-arrow">
           <i class="fa-solid fa-angles-down" ></i>
         </div>
       </div>
@@ -51,7 +51,7 @@
     </div>
     <br>
     <div >
-      <h2 id="header-name">Your Name</h2>
+      <h2 class="header-name">Your Name</h2>
     </div>
   </header>
 
@@ -69,9 +69,9 @@
       <h2>Compose Tweet</h2>
       <form method="POST" action="/tweets/">
         <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text" ></textarea>
-        <div id="bottom-div">
-          <button id="tweet-button" type="submit">Tweet</button>
+        <textarea name="text" class="tweet-text" ></textarea>
+        <div class="bottom-div">
+          <button class="tweet-button" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>

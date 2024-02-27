@@ -1,4 +1,4 @@
-#tweeter-logo-font {
+.tweeter-logo-font {
   font-family: 'Bungee', sans-serif;
 }
 
@@ -15,7 +15,7 @@ nav {
 
 
 
-#double-down-arrow {
+.double-down-arrow {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
