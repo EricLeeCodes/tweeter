@@ -13,5 +13,3 @@ $(document).ready(function() {
     };
   });
 });
-
-//k.fn.init {0: textarea#char-count.tweet-text, length: 1}

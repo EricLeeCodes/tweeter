@@ -1,0 +1,36 @@
+article.tweet header {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+article.tweet div:first-child {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+article.tweet .text-display {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  border-bottom: 3px solid;
+}
+
+article.tweet footer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+article.tweet .icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
