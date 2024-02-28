@@ -61,7 +61,6 @@
     <main class="container">
 
     <section class="new-tweet">
-
       <form method="POST" action="/tweets/">
         <label for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="char-count" class="tweet-text" ></textarea>
@@ -72,7 +71,7 @@
       </form>
     </section>
 
-    <section>
+    <section class="tweets">
       <article class="tweet">
         <header >
           <div>
@@ -93,9 +92,9 @@
             <p>x days ago</p>
           </div>
           <div class="icons">
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
+            <div class="icon"><i class="fa-solid fa-flag"></i></div>
+            <div class="icon"><i class="fa-solid fa-retweet"></i></div>
+            <div class="icon"><i class="fa-solid fa-heart"></i></div>
           </div>
         </footer>
       </article>

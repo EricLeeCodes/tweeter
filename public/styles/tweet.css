@@ -1,4 +1,20 @@
+.tweets {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.tweets:hover {
+  transition: 150ms;
+  box-shadow: 10px 5px 5px grey;
+}
+
+article.tweet {
+  border: 3px solid;
+  padding: 1em 1em 1em 1em;
+}
+
 article.tweet header {
+
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -33,4 +49,15 @@ article.tweet .icons {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+}
+
+article.tweet .icon {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #4056A1;
+}
+
+article.tweet .icon:hover {
+  transition: 150ms;
+  color: darkgoldenrod;
 }
