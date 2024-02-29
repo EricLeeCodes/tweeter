@@ -6,7 +6,7 @@
 $(() => {
 
   const $tweetsContainer = $('#tweets-container');
-  const $newTweetForm = $('new-tweet-form');
+  const $newTweetForm = $('#new-tweet-form');
 
   //Rendering tweet and appending them to our front end.
   const renderTweets = (tweetData) => {
