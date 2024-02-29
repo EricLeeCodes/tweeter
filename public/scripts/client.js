@@ -5,6 +5,7 @@
  */
 $(() => {
   const $tweetsContainer = $('#tweets-container');
+  const $newTweetForm = $('new-tweet-form');
 
   //Sample tweet database
   const tweetData = [
@@ -81,6 +82,20 @@ $(() => {
     return $tweet;
   };
 
+  $newTweetForm.on("submit", (event) => {
+    event.preventDefault(); //Prevents default activity
+    const serializedData = $(this).serialize(); //Creating text string in URL-encoded standard
+
+
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: serializedData,
+      success: () => {
+
+      }
+    });
+  });
 
   renderTweets(tweetData);
 });
