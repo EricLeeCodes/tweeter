@@ -76,7 +76,13 @@ $(() => {
   const validateTweet = function(tweetContent) {
     tweetContent = tweetContent.trim();
 
-    if (!tweetContent || tweetContent.length > 140) {
+    if (!tweetContent) {
+      alert("Write something to post a tweet");
+      return false;
+    }
+
+    if (tweetContent.length > 140) {
+      alert("Maximum character limit reached!");
       return false;
     }
 
@@ -85,15 +91,9 @@ $(() => {
 
   $newTweetForm.on("submit", (event) => {
     event.preventDefault(); //Prevents default activity
-    const tweetContent = ($tweetTextarea).val();
+    const tweetContent = ($tweetTextarea).val().trim();
 
     if (!validateTweet(tweetContent)) {
-      if (!tweetContent) {
-        alert("Write something to post a tweet");
-      }
-      if (tweetContent.length > 140) {
-        alert("Maximum character limit reached!");
-      }
       return;
     }
 
