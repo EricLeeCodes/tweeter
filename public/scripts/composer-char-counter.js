@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  const $charCount = $("#char-count");
+  const $tweetTextarea = $("#tweet-textarea");
   const $charCounter = $("#char-counter");
 
-  $charCount.on('input', function() {
+  $tweetTextarea.on('input', function() {
     let charLength = $(this).val().length;
     $charCounter.text(140 - charLength);
     if (charLength >= 130) {
