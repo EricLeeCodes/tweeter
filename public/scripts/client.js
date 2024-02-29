@@ -73,10 +73,8 @@ $(() => {
     });
   });
 
-  const tweetContent = ($tweetTextarea).val();
-
   const validateTweet = function(tweetContent) {
-    tweetContent.trim();
+    tweetContent = tweetContent.trim();
 
     if (!tweetContent || tweetContent.length > 140) {
       return false;
@@ -87,6 +85,7 @@ $(() => {
 
   $newTweetForm.on("submit", (event) => {
     event.preventDefault(); //Prevents default activity
+    const tweetContent = ($tweetTextarea).val();
 
     if (!validateTweet(tweetContent)) {
       if (!tweetContent) {
