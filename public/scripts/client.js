@@ -7,6 +7,8 @@ $(() => {
 
   const $tweetsContainer = $('#tweets-container');
   const $newTweetForm = $('#new-tweet-form');
+  const $tweetTextarea = $("#tweet-textarea");
+
 
 
   //Rendering tweet and appending them to our front end.
@@ -71,20 +73,20 @@ $(() => {
     });
   });
 
-  loadTweets();
+  const tweetContent = ($tweetTextarea).val();
+
+  const validateTweet = function(tweetContent) {
+    tweetContent.trim();
+
+    if (!tweetContent || tweetContent.length > 140) {
+      return false;
+    }
+
+    return true;
+  };
 
   $newTweetForm.on("submit", (event) => {
     event.preventDefault(); //Prevents default activity
-    const $charCount = $("#char-count");
-    const tweetContent = ($charCount).val();
-
-    const validateTweet = function(tweetContent) {
-      if (!tweetContent || tweetContent.length > 140) {
-        return false;
-      }
-
-      return true;
-    };
 
     if (!validateTweet(tweetContent)) {
       if (!tweetContent) {
@@ -97,15 +99,12 @@ $(() => {
     }
 
     const serializedData = $(this).serialize(); //Creating text string in URL-encoded standard
-    console.log(serializedData);
     $.ajax({
       url: '/tweets',
       method: 'POST',
       data: serializedData,
       success: () => {
-        if (validateTweet(tweetContent)) {
-          loadTweets();
-        };
+        loadTweets();
       },
       error: (err) => {
         console.log("Error posting tweets:", err);
@@ -113,4 +112,5 @@ $(() => {
     });
   });
 
+  loadTweets();
 });
