@@ -64,6 +64,9 @@ $(() => {
       success: (tweets) => {
         renderTweets(tweets);
       },
+      error: (err) => {
+        console.log("Error loading tweets:", err);
+      }
     });
   });
 
@@ -72,7 +75,6 @@ $(() => {
   $newTweetForm.on("submit", (event) => {
     event.preventDefault(); //Prevents default activity
     const serializedData = $(this).serialize(); //Creating text string in URL-encoded standard
-
 
     $.ajax({
       url: '/tweets',
