@@ -34,14 +34,14 @@ $(() => {
           <div>
             <div>
               <img src=${tweetUser.avatars}/>
-              <p>${tweetUser.name}</p>
+              <p>${escape(tweetUser.name)}</p>
             </div>
             <div>
-              <p>${tweetUser.handle}</p>
+              <p>${escape(tweetUser.handle)}</p>
             </div>
           </div>
           <div class="text-display">
-            <p>${tweetContent.text}</p>
+            <p>${escape(tweetContent.text)}</p>
           </div>
         </header>
         <footer>
@@ -110,6 +110,13 @@ $(() => {
       }
     });
   });
+
+  //Escape character to prevent malicious users from interacting with our code
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   loadTweets();
 });
