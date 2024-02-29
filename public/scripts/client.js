@@ -97,7 +97,7 @@ $(() => {
       return;
     }
 
-    const serializedData = $(this).serialize(); //Creating text string in URL-encoded standard
+    const serializedData = $newTweetForm.serialize(); //Creating text string in URL-encoded standard
     $.ajax({
       url: '/tweets',
       method: 'POST',
