@@ -40,7 +40,7 @@ $(() => {
     //Loop over the data and create tweet with the informations
     for (const tweet of tweetData) {
       const $tweet = createTweet(tweet); //Assign to jQ variable 
-      $tweetsContainer.append($tweet); //Append to display page
+      $tweetsContainer.prepend($tweet); //Append to display page
     }
 
   };
