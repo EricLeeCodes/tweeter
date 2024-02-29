@@ -4,35 +4,9 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(() => {
+
   const $tweetsContainer = $('#tweets-container');
   const $newTweetForm = $('new-tweet-form');
-
-  //Sample tweet database
-  const tweetData = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
 
   //Rendering tweet and appending them to our front end.
   const renderTweets = (tweetData) => {
@@ -69,7 +43,7 @@ $(() => {
         </header>
         <footer>
           <div>
-            <p>${tweet["created_at"]} days ago</p>
+            <p>${timeago.format(tweet["created_at"])}</p>
           </div>
           <div class="icons">
             <div class="icon"><i class="fa-solid fa-flag"></i></div>
@@ -81,6 +55,19 @@ $(() => {
     `);
     return $tweet;
   };
+
+  const loadTweets = (() => {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      //Takes in an array of tweets
+      success: (tweets) => {
+        renderTweets(tweets);
+      },
+    });
+  });
+
+  loadTweets();
 
   $newTweetForm.on("submit", (event) => {
     event.preventDefault(); //Prevents default activity
