@@ -7,7 +7,9 @@ $(() => {
 
   const $tweetsContainer = $('#tweets-container');
   const $newTweetForm = $('#new-tweet-form');
-  const $tweetTextarea = $("#tweet-textarea");
+  const $tweetTextarea = $('#tweet-textarea');
+  const $charLimitMessage = $('#char-limit-message');
+  const $emptyMessage = $('#empty-message');
 
 
 
@@ -65,6 +67,8 @@ $(() => {
       method: 'GET',
       //Takes in an array of tweets
       success: (tweets) => {
+        $charLimitMessage.hide();
+        $emptyMessage.hide();
         renderTweets(tweets);
       },
       error: (err) => {
@@ -77,12 +81,18 @@ $(() => {
     tweetContent = tweetContent.trim();
 
     if (!tweetContent) {
-      alert("Write something to post a tweet");
+      $charLimitMessage.hide();
+      $charLimitMessage.css("visibility", "hidden");
+      $emptyMessage.css("visibility", "visible");
+      $emptyMessage.slideDown("slow");
       return false;
     }
 
     if (tweetContent.length > 140) {
-      alert("Maximum character limit reached!");
+      $emptyMessage.hide();
+      $emptyMessage.css("visibility", "hidden");
+      $charLimitMessage.css("visibility", "visible");
+      $charLimitMessage.slideDown("slow");
       return false;
     }
 
@@ -108,7 +118,7 @@ $(() => {
       },
       error: (err) => {
         console.log("Error posting tweets:", err);
-      }
+      },
     });
   });
 
