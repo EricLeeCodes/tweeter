@@ -103,6 +103,7 @@ $(() => {
       method: 'POST',
       data: serializedData,
       success: () => {
+        $newTweetForm.trigger("reset");
         loadTweets();
       },
       error: (err) => {
