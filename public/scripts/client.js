@@ -86,6 +86,16 @@ $(() => {
       return true;
     };
 
+    if (!validateTweet(tweetContent)) {
+      if (!tweetContent) {
+        alert("Write something to post a tweet");
+      }
+      if (tweetContent.length > 140) {
+        alert("Maximum character limit reached!");
+      }
+      return;
+    }
+
     const serializedData = $(this).serialize(); //Creating text string in URL-encoded standard
     console.log(serializedData);
     $.ajax({
