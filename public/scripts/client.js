@@ -79,10 +79,9 @@ $(() => {
       method: 'POST',
       data: serializedData,
       success: () => {
-
+        loadTweets();
       }
     });
   });
 
-  renderTweets(tweetData);
 });
