@@ -19,11 +19,8 @@
   }
 }
 @media only screen and (min-width: 1024px) {
-  .tweeter-logo-font {
-    font-family: "Bungee", sans-serif;
-  }
   nav {
-    position: static;
+    position: fixed;
     height: 120px;
     width: 100vw;
     background-color: #4056A1;
@@ -32,7 +29,12 @@
     display: flex;
     justify-content: space-between;
   }
-  .double-down-arrow {
+
+  nav .tweeter-logo-font {
+    font-family: "Bungee", sans-serif;
+  }
+
+  nav .double-down-arrow {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

@@ -45,7 +45,7 @@ body {
     gap: 1em;
   }
   .desktop-view {
-    padding: 5%;
+    padding: 200px;
     display: flex;
     justify-content: center;
     flex-direction: row;
