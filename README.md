@@ -18,7 +18,7 @@ This repository is the starter code for the project: Students will fork and clon
 - Node 5.10.x or above
 
 
-## Description\
+## Description
 <br>
 <h3 style="text-align: center;">Welcome to Tweeter! A single-page Twitter clone.</h3> 
 <br>
