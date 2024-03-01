@@ -10,6 +10,7 @@ $(() => {
   const $tweetTextarea = $('#tweet-textarea');
   const $charLimitMessage = $('#char-limit-message');
   const $emptyMessage = $('#empty-message');
+  const $charCounter = $("#char-counter");
 
 
 
@@ -130,9 +131,12 @@ $(() => {
       method: 'POST',
       data: serializedData,
       success: () => {
-        //Resets the form with content
+        //Resets the form with content and counter
         $newTweetForm.trigger("reset");
-        loadTweets(); //Displays tweets after a successful post
+        $charCounter.text(140);
+
+        //Displays tweets after a successful post
+        loadTweets();
       },
       error: (err) => {
         console.log("Error posting tweets:", err);
