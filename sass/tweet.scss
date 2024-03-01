@@ -11,6 +11,7 @@ article.tweet:hover {
 }
 
 article.tweet header {
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,6 +27,7 @@ article.tweet .text-display {
   display: flex;
   padding-left: 20px;
   padding-right: 20px;
+
   border-bottom: 3px solid;
 }
 

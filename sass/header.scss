@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1023px) {
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
   .top-header {
     padding-top: 120px;
     height: 520px;
@@ -8,12 +8,14 @@
     align-items: center;
     flex-direction: column;
     background-image: url("/images/45-degree-fabric-dark.png");
-    background-color: #d68800;
-  }
+    background-color:#d68800;
+    }
+
   .header-name {
     margin: 0;
   }
 }
+
 @media only screen and (min-width: 1024px) {
   .top-header {
     height: 520px;
@@ -23,8 +25,10 @@
     align-items: center;
     flex-direction: column;
     background-image: url("/images/45-degree-fabric-dark.png");
-    background-color: #d68800;
-  }
+    background-color:#d68800;
+    }
+
+
   .header-name {
     margin: 0;
   }
