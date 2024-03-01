@@ -1,16 +1,35 @@
-.top-header {
-  padding-top: 120px;
-  height: 520px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  background-image: url("/images/45-degree-fabric-dark.png");
-  background-color:#d68800;
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
+  .top-header {
+    padding-top: 120px;
+    height: 520px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("/images/45-degree-fabric-dark.png");
+    background-color:#d68800;
+    }
+
+  .header-name {
+    margin: 0;
+  }
 }
 
+@media only screen and (min-width: 1024px) {
+  .top-header {
+    height: 520px;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("/images/45-degree-fabric-dark.png");
+    background-color:#d68800;
+    }
 
-.header-name {
-  margin: 0;
+
+  .header-name {
+    margin: 0;
+  }
 }

@@ -36,19 +36,20 @@
   <body>
 
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span class="tweeter-logo-font">tweeter</span>
+  <nav>
+    <span class="tweeter-logo-font">tweeter</span>
+    <div>
       <div>
-        <div>
-          <span>Write a new tweet</span>
-        </div>
-        <div class="double-down-arrow">
-          <i class="fa-solid fa-angles-down" ></i>
-        </div>
+        <span>Write a new tweet</span>
       </div>
-    </nav>
+      <div class="double-down-arrow">
+        <i class="fa-solid fa-angles-down" ></i>
+      </div>
+    </div>
+  </nav>
 
-  <header class="top-header">
+  <div class="desktop-view">
+    <header class="top-header">
     <div>
       <img src="/images/profile-hex.png"> 
     </div>
@@ -59,35 +60,34 @@
   </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
+  <main class="container">
+  <section class="new-tweet">
+    <form id="new-tweet-form" method="POST" action="/tweets/">
+      <label for="tweet-text">What are you humming about?</label>
+      <textarea name="text" id="tweet-textarea" class="tweet-text" ></textarea>
+      <div id="char-limit-message" class="post-error-message">
+        <span>
+          <i class="fa-solid fa-circle-exclamation"></i>
+        </span>
+        Character limit exceeded!
+      </div>
+      <div id="empty-message" class="post-error-message">
+        <span>
+          <i class="fa-solid fa-circle-exclamation"></i>
+        </span>
+        You haven't written anything!
+      </div>
+      <div class="bottom-div">
+        <button class="tweet-button" type="submit">Tweet</button>
+        <output id="char-counter" name="counter" class="counter" for="tweet-text">140</output>
+      </div>
+    </form>
+  </section>
 
-    <section class="new-tweet">
-      <form id="new-tweet-form" method="POST" action="/tweets/">
-        <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-textarea" class="tweet-text" ></textarea>
-        <div id="char-limit-message" class="post-error-message">
-          <span>
-            <i class="fa-solid fa-circle-exclamation"></i>
-          </span>
-          Character limit exceeded!
-        </div>
-        <div id="empty-message" class="post-error-message">
-          <span>
-            <i class="fa-solid fa-circle-exclamation"></i>
-          </span>
-          You haven't written anything!
-        </div>
-        <div class="bottom-div">
-          <button class="tweet-button" type="submit">Tweet</button>
-          <output id="char-counter" name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
+  <section id="tweets-container"></section>
 
-    <section id="tweets-container">
-    </section>
-
-    </main>
+  </main>
+  </div>
 
   </body>
 </html>
