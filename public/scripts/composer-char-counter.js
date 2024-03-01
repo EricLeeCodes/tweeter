@@ -5,9 +5,9 @@ $(document).ready(function() {
   $tweetTextarea.on('input', function() {
     let charLength = $(this).val().length;
     $charCounter.text(140 - charLength);
-    if (charLength >= 130) {
+    if (charLength >= 140) {
       $charCounter.css("color", "red");
-    } else if (charLength <= 130) {
+    } else if (charLength <= 140) {
       $charCounter.css("color", "");
     };
   });
