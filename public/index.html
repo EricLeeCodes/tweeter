@@ -34,7 +34,6 @@
   </head>
 
   <body>
-
     <!-- Top nav bar (fixed) -->
   <nav>
     <span class="tweeter-logo-font">tweeter</span>
@@ -48,6 +47,7 @@
     </div>
   </nav>
 
+  <!-- Div class for formatting desktop view -->
   <div class="desktop-view">
     <header class="top-header">
     <div>
@@ -59,24 +59,32 @@
     </div>
   </header>
 
-    <!-- Page-specific (main) content here -->
+  <!-- Page-specific (main) content here -->
   <main class="container">
+
+  <!-- Section form for creating new tweets -->
   <section class="new-tweet">
     <form id="new-tweet-form" method="POST" action="/tweets/">
       <label for="tweet-text">What are you humming about?</label>
       <textarea name="text" id="tweet-textarea" class="tweet-text" ></textarea>
+
+      <!-- Character Limit Exceeded Warning Message -->
       <div id="char-limit-message" class="post-error-message">
         <span>
           <i class="fa-solid fa-circle-exclamation"></i>
         </span>
         Character limit exceeded!
       </div>
+
+      <!-- Empty field Warning Message -->
       <div id="empty-message" class="post-error-message">
         <span>
           <i class="fa-solid fa-circle-exclamation"></i>
         </span>
         You haven't written anything!
       </div>
+
+      <!-- Tweet button and character count -->
       <div class="bottom-div">
         <button class="tweet-button" type="submit">Tweet</button>
         <output id="char-counter" name="counter" class="counter" for="tweet-text">140</output>
@@ -84,6 +92,7 @@
     </form>
   </section>
 
+  <!-- Tweet Containers where current/new tweets appear -->
   <section id="tweets-container"></section>
 
   </main>

@@ -20,7 +20,7 @@ $(() => {
     //Loop over the data and create tweet with the informations
     for (const tweet of tweetData) {
       const $tweet = createTweet(tweet); //Assign to jQ variable 
-      $tweetsContainer.prepend($tweet); //Append to display page
+      $tweetsContainer.prepend($tweet); //Prepend to display page
     }
 
   };
@@ -30,6 +30,7 @@ $(() => {
     const tweetUser = tweet.user;
     const tweetContent = tweet.content;
 
+    //HTML layout of the tweet
     const $tweet = $(`
       <article class="tweet">
         <header>
@@ -61,15 +62,17 @@ $(() => {
     return $tweet;
   };
 
+  //Loading/GETting current tweets
   const loadTweets = (() => {
+
     $.ajax({
       url: '/tweets',
       method: 'GET',
       //Takes in an array of tweets
       success: (tweets) => {
-        $charLimitMessage.hide();
-        $emptyMessage.hide();
-        renderTweets(tweets);
+        $charLimitMessage.hide(); //If charLimitMessage is displayed, hide it
+        $emptyMessage.hide(); // If emptyMessage is displayed, hide it
+        renderTweets(tweets); //Using renderTweets function on success
       },
       error: (err) => {
         console.log("Error loading tweets:", err);
@@ -77,20 +80,29 @@ $(() => {
     });
   });
 
+  //Validating tweets with tweet content as parameters
   const validateTweet = function(tweetContent) {
-    tweetContent = tweetContent.trim();
+    tweetContent = tweetContent.trim(); //trim content to not include spaces before or after the intended message
 
+    //If tweetContent is not there
     if (!tweetContent) {
+      //Hides error message and css if displayed
       $charLimitMessage.hide();
       $charLimitMessage.css("visibility", "hidden");
+
+      //Shows error message of no tweet content
       $emptyMessage.css("visibility", "visible");
       $emptyMessage.slideDown("slow");
-      return false;
+      return false; //return to break validation
     }
 
+    //If tweetContent is above character limit
     if (tweetContent.length > 140) {
+      //Hides error message and css if displayed
       $emptyMessage.hide();
       $emptyMessage.css("visibility", "hidden");
+
+      //Shows error message of character limit reached
       $charLimitMessage.css("visibility", "visible");
       $charLimitMessage.slideDown("slow");
       return false;
@@ -99,22 +111,28 @@ $(() => {
     return true;
   };
 
+  //Submtting the tweet form
   $newTweetForm.on("submit", (event) => {
     event.preventDefault(); //Prevents default activity
+
+    //Put trimmed content in variable
     const tweetContent = ($tweetTextarea).val().trim();
 
-    if (!validateTweet(tweetContent)) {
-      return;
+    if (!validateTweet(tweetContent)) { //If the tweet is not valid,
+      return; //Break the call
     }
 
-    const serializedData = $newTweetForm.serialize(); //Creating text string in URL-encoded standard
+    //Creating text string in URL-encoded standard
+    const serializedData = $newTweetForm.serialize();
+
     $.ajax({
       url: '/tweets',
       method: 'POST',
       data: serializedData,
       success: () => {
+        //Resets the form with content
         $newTweetForm.trigger("reset");
-        loadTweets();
+        loadTweets(); //Displays tweets after a successful post
       },
       error: (err) => {
         console.log("Error posting tweets:", err);
